@@ -5,7 +5,7 @@ sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 # Bind the socket to the port
 # server_address = ('192.168.122.244', 10000) #alpine 1
 server_address = ('192.168.122.136', 10000) #alpine 2 
-print(f"starting up alpine 2 on {server_address}")
+print(f"starting up on {server_address}")
 sock.bind(server_address)
 # Listen for incoming connections
 sock.listen(1)
