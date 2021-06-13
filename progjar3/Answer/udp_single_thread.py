@@ -1,4 +1,4 @@
-from library import download_gambar, get_url_list, kirim_gambar
+from library import download_gambar, get_url_list, send_image
 import time
 import datetime
 
@@ -15,12 +15,12 @@ def kirim_semua():
         UDP_IP_ADDRESS = "192.168.122.220"
         UDP_IP_ADDRESS2 = "192.168.122.14"
         if z == 0:
-            kirim_gambar(UDP_IP_ADDRESS, 5050, f"{k}.jpg")
+            send_image(UDP_IP_ADDRESS, 5050, f"{k}.jpg")
             print('~Server 1~')
             z = z + 1
         elif z == 1:
             print('~Server 2~')
-            kirim_gambar(UDP_IP_ADDRESS2, 5050, f"{k}.jpg")
+            send_image(UDP_IP_ADDRESS2, 5050, f"{k}.jpg")
     selesai = datetime.datetime.now() - catat
     print(f"Total Time Needed : {selesai} seconds")
 

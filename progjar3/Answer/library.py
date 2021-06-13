@@ -9,7 +9,6 @@ import datetime
 def get_url_list():
     urls = dict()
     urls['kompas']='https://asset.kompas.com/crops/qz_jJxyaZgGgboomdCEXsfbSpec=/0x0:998x665/740x500/data/photo/2020/03/01/5e5b52f4db896.jpg'
-#    urls['its']='https://awsimages.detik.net.id/customthumb/2012/03/02/398/ITS-Tech-dalam.jpg'
     urls['detik']='https://awscdn.detik.net.id/detik2/images/logo.jpg'
     return urls
 
@@ -43,21 +42,18 @@ def download_gambar(url=None,tuliskefile='image'):
     else:
         return False
 
-def kirim_gambar(IP_ADDRESS, PORT, filename):
+def send_image(IP_ADDRESS, PORT, filename):
     print(IP_ADDRESS, PORT, filename)
     ukuran=os.stat(filename).st_size
-    clientSock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
-
+    sckclient = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
+    sent=0
     fp=open(filename,'rb')
     k=fp.read()
-    terkirim=0
     for x in k:
         k_bytes=bytes([x])
-        clientSock.sendto(k_bytes,(IP_ADDRESS,PORT))
-        terkirim=terkirim+1
-
+        sckclient.sendto(k_bytes,(IP_ADDRESS,PORT))
+        sent=sent+1
 
 if __name__=='__main__':
-    #check fungsi
     k = download_gambar('https://asset.kompas.com/crops/qz_jJxyaZgGgboomdCEXsfbSpec=/0x0:998x665/740x500/data/photo/2020/03/01/5e5b52f4db896.jpg')
     print(k)

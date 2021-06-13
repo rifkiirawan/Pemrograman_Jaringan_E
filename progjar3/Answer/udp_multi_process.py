@@ -1,4 +1,4 @@
-from library import download_gambar, get_url_list, kirim_gambar
+from library import download_gambar, get_url_list, send_image
 import time
 import datetime
 from multiprocessing import Process
@@ -16,12 +16,12 @@ def kirim_semua():
         UDP_IP_ADDRESS = "192.168.122.220"
         UDP_IP_ADDRESS2 = "192.168.122.14"
         if z == 0:
-            texec[k] = Process(target=kirim_gambar, args=(UDP_IP_ADDRESS,5050,f"{k}.jpg"))
+            texec[k] = Process(target=send_image, args=(UDP_IP_ADDRESS,5050,f"{k}.jpg"))
             print('~Server 1~')
             z = z+1
         elif z == 1:
             print('~Server 2~')
-            texec[k] = Process(target=kirim_gambar, args=(UDP_IP_ADDRESS2,5050,f"{k}.jpg"))
+            texec[k] = Process(target=send_image, args=(UDP_IP_ADDRESS2,5050,f"{k}.jpg"))
         texec[k].start()
     #setelah menyelesaikan tugasnya, dikembalikan ke main process dengan join
     for k in urls:
