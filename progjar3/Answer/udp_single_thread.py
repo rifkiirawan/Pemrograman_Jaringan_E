@@ -2,7 +2,7 @@ from library import download_gambar, get_url_list, send_image
 import time
 import datetime
 
-def kirim_semua():
+def send_all():
     urls = get_url_list()
     z = 0
 
@@ -28,4 +28,4 @@ def kirim_semua():
 #fungsi download_gambar akan dijalankan secara berurutan
 
 if __name__=='__main__':
-    kirim_semua()
+    send_all()

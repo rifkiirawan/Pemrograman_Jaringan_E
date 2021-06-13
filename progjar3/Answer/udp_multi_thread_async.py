@@ -3,7 +3,7 @@ import time
 import datetime
 import concurrent.futures
 
-def kirim_semua():
+def send_all():
     texec = dict()
     urls = get_url_list()
     z = 0
@@ -34,4 +34,4 @@ def kirim_semua():
     print(status_task)
 
 if __name__=='__main__':
-    kirim_semua()
+    send_all()
